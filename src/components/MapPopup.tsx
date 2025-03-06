@@ -1,15 +1,11 @@
 import ClearIcon from "@/components/icons/clear-icon";
-import {
-  minMaxColors,
-  pollutantExplanation,
-  pollutantLabels,
-} from "@/lib/mapUtils";
+import { pollutantExplanation, pollutantLabels } from "@/lib/mapUtils";
 
 interface MapPopupProps {
-  screenCoordinates: any | object;
-  features: any | object;
-  closePopup: any;
-  userSearchResult: any | object;
+  screenCoordinates: { x: number; y: number };
+  features: object;
+  closePopup: () => void;
+  userSearchResult: { properties: { text: string } };
 }
 
 export const MapPopup = ({
@@ -18,8 +14,6 @@ export const MapPopup = ({
   closePopup,
   userSearchResult,
 }: MapPopupProps) => {
-  console.log(userSearchResult);
-
   const isMobile = window.innerWidth < 640; // Tailwind's `sm` breakpoint is 640px
 
   return (
@@ -37,7 +31,6 @@ export const MapPopup = ({
             }
       }
     >
-      {/* shadow-xl */}
       <div className="p-2 border-[#f5b4cb] bg-white border-2 relative m-2">
         <p className="font-bold text-base pb-2 pr-8">
           {userSearchResult?.properties?.text
@@ -48,13 +41,11 @@ export const MapPopup = ({
         <button
           className="absolute top-2 right-1  text-white px-2 py-1 rounded"
           onClick={closePopup}
-          ref={(el) => {
-            if (el && userSearchResult?.properties?.text) {
-              console.log("Äää");
-
-              el.focus();
-            }
-          }}
+          // ref={(el) => {
+          //   if (el && userSearchResult?.properties?.text) {
+          //     el.focus();
+          //   }
+          // }}
         >
           <ClearIcon />
         </button>
@@ -62,13 +53,12 @@ export const MapPopup = ({
           {Object.entries(features).map(([key, value]) => (
             <li key={key}>
               <span className="w-[180px] inline-block">
-                {/* @ts-ignore */}
+                {/* @ts-expect-error placeholder placeholder*/}
                 <span className="font-bold">{pollutantLabels[key]}</span>
-                {/* @ts-ignore */}
+                {/* @ts-expect-error placeholder placeholder*/}
                 <span> - {pollutantExplanation[key]} </span>
               </span>
               {"| "}
-              {/* @ts-ignore */}
               <span className="font-bold">{value} ppm</span>
             </li>
           ))}

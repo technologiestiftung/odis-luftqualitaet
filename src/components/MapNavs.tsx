@@ -23,7 +23,7 @@ export const MapNavs = ({ map }: MapNavsProps) => {
 
     if (!doc || !document) return;
 
-    // @ts-ignore
+    // @ts-expect-error placeholder
     if (!document.fullscreenElement && !docExit.webkitFullscreenElement) {
       setIsFullScreen(true);
       if (doc.requestFullscreen) {
@@ -43,7 +43,7 @@ export const MapNavs = ({ map }: MapNavsProps) => {
 
   useEffect(() => {
     function handleFullScreenChange() {
-      // @ts-ignore
+      // @ts-expect-error placeholder
       if (!document.fullscreenElement && !document.webkitFullscreenElement) {
         setIsFullScreen(false);
       }
@@ -67,6 +67,7 @@ export const MapNavs = ({ map }: MapNavsProps) => {
         className="h-[43px] w-[43px] px-3 py-1 hover:cursor-pointer bg-white mb-1 hover:text-opacity-50 text-black"
         title="hineinzoom"
         onClick={() => {
+          // @ts-expect-error placeholder
           if (map) map.current.zoomIn();
         }}
       >
@@ -76,6 +77,7 @@ export const MapNavs = ({ map }: MapNavsProps) => {
         className="h-[43px] w-[43px] px-3 py-1 hover:cursor-pointer bg-white mb-1 hover:text-opacity-50 text-black"
         title="hinauszoom"
         onClick={() => {
+          // @ts-expect-error placeholder
           if (map) map.current.zoomOut();
         }}
       >

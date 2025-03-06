@@ -15,11 +15,11 @@ export const MapKey = ({ pollutionType, pollutionValues }: MapKeyProps) => {
   const [indicatorPosition, setIndicatorPosition] = useState(0);
 
   // Get min and max values for the selected pollution type
-  // @ts-ignore
+  // @ts-expect-error placeholder
   const min = minMaxValues[pollutionType][0];
-  // @ts-ignore
+  // @ts-expect-error placeholder
   const max = minMaxValues[pollutionType][1];
-  // @ts-ignore
+  // @ts-expect-error placeholder
   const currentValue = pollutionValues?.[pollutionType] ?? min;
 
   // Calculate indicator position as a percentage
@@ -28,7 +28,7 @@ export const MapKey = ({ pollutionType, pollutionValues }: MapKeyProps) => {
       const percent = ((currentValue - min) / (max - min)) * 100;
       setIndicatorPosition(Math.min(100, Math.max(0, percent))); // Keep within bounds
     }
-  }, [pollutionType, pollutionValues, min, max]);
+  }, [pollutionType, pollutionValues, min, max, currentValue]);
 
   return (
     <div className="pointer-events-none absolute bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
@@ -36,9 +36,9 @@ export const MapKey = ({ pollutionType, pollutionValues }: MapKeyProps) => {
         {" "}
         {/* Title */}
         <p className="text-xs text-left mb-2">
-          Jahresdurchschnitt {/* @ts-ignore */}
+          Jahresdurchschnitt {/* @ts-expect-error placeholder placeholder*/}
           <span className="font-bold">{pollutantLabels[pollutionType]} </span>(
-          {/* @ts-ignore */}
+          {/* @ts-expect-error placeholder placeholder*/}
           {pollutantExplanation[pollutionType]})
         </p>
         {/* Labels */}

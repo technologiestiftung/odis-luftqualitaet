@@ -12,7 +12,7 @@ const layerNames = {
   "pm2.5": "merged_pm25",
 };
 
-// @ts-ignore
+// @ts-expect-error placeholder
 const setMapInteraction = (map, enabled) => {
   if (!map) return;
   const actions = [
@@ -30,7 +30,7 @@ const setMapInteraction = (map, enabled) => {
 };
 
 interface MapProps {
-  userSearchResult: any | object;
+  userSearchResult: null | object;
   setUserSearchResult: React.Dispatch<React.SetStateAction<object> | null>;
   pollutionType: string;
   setPollutionValues: React.Dispatch<React.SetStateAction<object> | null>;
@@ -54,7 +54,7 @@ export const MapComponent = ({
     }
   };
 
-  // @ts-ignore
+  // @ts-expect-error placeholder
   const whenClicked = (e, newScreenPoint) => {
     if (!map.current) return;
 
@@ -101,7 +101,7 @@ export const MapComponent = ({
       const screenCoords = map.current.project(e.lngLat);
 
       setPopupData({
-        // @ts-ignore
+        // @ts-expect-error placeholder
         coordinates: e.lngLat,
         screenCoordinates: screenCoords,
         features: features[0].properties,
@@ -119,6 +119,7 @@ export const MapComponent = ({
     removeGridHighlight();
 
     map.current.flyTo({
+      // @ts-expect-error placeholder
       center: userSearchResult.geometry.coordinates,
       zoom: 13,
       essential: true,
@@ -128,9 +129,11 @@ export const MapComponent = ({
       setMapInteraction(map.current, true);
       if (!map.current) return;
       const newScreenPoint = map.current.project(
+        // @ts-expect-error placeholder
         userSearchResult.geometry.coordinates
       );
       whenClicked(
+        // @ts-expect-error placeholder
         { lngLat: userSearchResult.geometry.coordinates },
         newScreenPoint
       );
@@ -143,7 +146,7 @@ export const MapComponent = ({
 
     map.current = new maplibregl.Map({
       container: mapContainer.current,
-      // @ts-ignore
+      // @ts-expect-error placeholder
       style: mapStyle(
         pollutionType,
         window.location.origin + window.location.pathname
@@ -219,13 +222,13 @@ export const MapComponent = ({
         id: "zoomOutLayer",
         type: "fill",
         source: layerNames[pollutionType as keyof typeof layerNames],
-        // @ts-ignore
+        // @ts-expect-error placeholder
         "source-layer": layerNames[pollutionType],
         minzoom: 1,
         maxzoom: 12,
         paint: {
           "fill-opacity": fillOpacity,
-          // @ts-ignore
+          // @ts-expect-error placeholder
           "fill-color": fillColorStyle(pollutionType),
           "fill-antialias": false,
         },
@@ -235,13 +238,13 @@ export const MapComponent = ({
 
   return (
     <div ref={mapContainer} className="w-full h-full relative">
-      {/* @ts-ignore */}
+      {/* @ts-expect-error placeholder*/}
       <MapNavs map={map} />
       {popupData && (
         <MapPopup
-          // @ts-ignore
+          // @ts-expect-error placeholder
           screenCoordinates={popupData.screenCoordinates}
-          // @ts-ignore
+          // @ts-expect-error placeholder
           features={popupData.features}
           closePopup={() => {
             setPopupData(null);
@@ -249,6 +252,7 @@ export const MapComponent = ({
             setPollutionValues(null);
             setUserSearchResult(null);
           }}
+          // @ts-expect-error placeholder
           userSearchResult={userSearchResult}
         />
       )}

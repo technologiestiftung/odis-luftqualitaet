@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { MapComponent } from "@/components/Map";
 import { Search } from "@/components/Search";

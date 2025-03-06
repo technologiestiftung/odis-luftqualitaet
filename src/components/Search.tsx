@@ -43,7 +43,7 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
       e.preventDefault();
       const selectedItem = results[selectedIndex];
       setUserSearchResult(selectedItem);
-      // @ts-ignore
+      // @ts-expect-error placeholder
       setSearch(selectedItem.properties.text || "");
       setShowDropdown(false);
       setShouldFetch(false); // Prevent unnecessary refetching
@@ -60,8 +60,6 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
         className="group grid grid-cols-1 grid-rows-1 items-center z-10"
       >
         <input
-          // @ts-ignore
-          tabIndex={"0"}
           value={search}
           type="text"
           id="search"
@@ -81,8 +79,6 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
         </div>
         <div className="relative row-start-1 col-start-1 w-full h-full flex flex-row gap-2 justify-end pointer-events-none pr-2.5">
           <button
-            // @ts-ignore
-            tabIndex={"0"}
             type="button"
             className={`${
               search === "" ? "hidden" : ""
@@ -120,14 +116,14 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
               }`}
               onMouseDown={() => {
                 setUserSearchResult(item);
-                // @ts-ignore
-                setSearch(item.properties.text || "");
+                // @ts-expect-error placeholder
+                setSearch(item?.properties?.text || "");
                 setShowDropdown(false);
                 setShouldFetch(false); // Prevent unnecessary refetching
                 setSelectedIndex(-1);
               }}
             >
-              {/* @ts-ignore */}
+              {/* @ts-expect-error placeholder placeholder*/}
               {item.properties.text || ""}
             </li>
           ))}

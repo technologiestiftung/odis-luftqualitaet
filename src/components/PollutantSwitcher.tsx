@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 
 import { pollutantLabels } from "@/lib/mapUtils";
 
@@ -13,9 +13,9 @@ export const PollutantSwitcher = ({
 }: PollutantSwitcherProps) => {
   return (
     <div className="absolute top-16 z-10 text-center w-full text-sm pointer-events-none">
-      {["no2", "pm10", "pm2.5"].map((pType, index) => (
+      {["no2", "pm10", "pm2.5"].map((pType) => (
         <button
-          // @ts-ignore
+          // @ts-expect-error placeholder
           tabIndex={"0"}
           key={pType}
           className={`pointer-events-auto hover:text-opacity-50 cursor-pointer p-2 border-2 border-black w-20 m-1 ${
@@ -26,10 +26,10 @@ export const PollutantSwitcher = ({
           onClick={() => {
             setPollutionType(pType);
           }}
-          // @ts-ignore
+          // @ts-expect-error placeholder
           title={`${pollutantLabels[pType]}-Werte anzeigen`}
         >
-          {/* @ts-ignore */}
+          {/* @ts-expect-error placeholder placeholder*/}
           {pollutantLabels[pType]}
         </button>
       ))}
