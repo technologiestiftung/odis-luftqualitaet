@@ -130,7 +130,7 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
         </ul>
       )}
 
-      <button
+      {/* <button
         className="bottom-0 fixed"
         onClick={() =>
           setUserSearchResult({
@@ -175,7 +175,7 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
         }
       >
         buttonbuttonbutton
-      </button>
+      </button> */}
     </div>
   );
 };

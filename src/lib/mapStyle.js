@@ -50,19 +50,19 @@ export function mapStyle(pollutionType, location) {
           "background-color": "#fff",
         },
       },
-      // {
-      //   id: "osmBaseMap",
-      //   type: "raster",
-      //   source: "osmBaseMap",
-      //   layout: {
-      //     // visibility: "visisible",
-      //   },
-      //   paint: {
-      //     "raster-saturation": -1,
-      //     "raster-contrast": 0.1,
-      //     "raster-opacity": 1,
-      //   },
-      // },
+      {
+        id: "osmBaseMap",
+        type: "raster",
+        source: "osmBaseMap",
+        layout: {
+          // visibility: "visisible",
+        },
+        paint: {
+          "raster-saturation": -1,
+          "raster-contrast": 0.1,
+          "raster-opacity": 0.3,
+        },
+      },
       {
         id: "zoomInLayer",
         type: "fill",

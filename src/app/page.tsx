@@ -13,33 +13,33 @@ export default function Home() {
 
   return (
     // remove this div on production
-    <div
-      style={{
-        width: "80%",
-        height: "585px",
-        padding: "30px",
-      }}
-    >
-      <main className="w-full h-full justify-content content-center text-center relative border-2 border-black">
-        <Search setUserSearchResult={setUserSearchResult}></Search>
-        <PollutantSwitcher
-          pollutionType={pollutionType}
-          setPollutionType={setPollutionType}
-        ></PollutantSwitcher>
-        <MapComponent
-          userSearchResult={userSearchResult}
-          setUserSearchResult={setUserSearchResult}
-          pollutionType={pollutionType}
-          setPollutionValues={setPollutionValues}
-        ></MapComponent>
-        <MapKey
-          pollutionType={pollutionType}
-          pollutionValues={pollutionValues}
-        ></MapKey>
-        <p className="absolute right-0 bottom-0 pr-2 text-xs opacity-35">
-          © OpenStreetMap contributors
-        </p>
-      </main>
-    </div>
+    // <div
+    //   style={{
+    //     width: "80%",
+    //     height: "585px",
+    //     padding: "30px",
+    //   }}
+    // >
+    <main className="w-full h-full justify-content content-center text-center relative">
+      <Search setUserSearchResult={setUserSearchResult}></Search>
+      <PollutantSwitcher
+        pollutionType={pollutionType}
+        setPollutionType={setPollutionType}
+      ></PollutantSwitcher>
+      <MapComponent
+        userSearchResult={userSearchResult}
+        setUserSearchResult={setUserSearchResult}
+        pollutionType={pollutionType}
+        setPollutionValues={setPollutionValues}
+      ></MapComponent>
+      <MapKey
+        pollutionType={pollutionType}
+        pollutionValues={pollutionValues}
+      ></MapKey>
+      <p className="absolute right-0 bottom-0 pr-2 text-xs opacity-35">
+        © OpenStreetMap contributors
+      </p>
+    </main>
+    // </div>
   );
 }
