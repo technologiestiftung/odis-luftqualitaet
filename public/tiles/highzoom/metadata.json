@@ -1,0 +1,16 @@
+{
+"name": "./out/tiles/highzoom",
+"description": "./out/tiles/highzoom",
+"version": "2",
+"minzoom": "10",
+"maxzoom": "13",
+"center": "13.557129,52.415821,13",
+"bounds": "13.087593,52.337607,13.762103,52.675884",
+"antimeridian_adjusted_bounds": "13.087593,52.337607,13.762103,52.675884",
+"type": "overlay",
+"strategies": "[{},{},{},{},{},{},{},{},{},{},{\"detail_reduced\":15,\"tiny_polygons\":701061,\"tile_size_desired\":3080814},{\"detail_reduced\":36,\"tiny_polygons\":368388,\"tile_size_desired\":1664022},{\"tiny_polygons\":2},{\"tiny_polygons\":3}]",
+"format": "pbf",
+"generator": "tippecanoe v2.31.0",
+"generator_options": "tippecanoe --output-to-directory ./out/tiles/highzoom --no-tile-compression --force -B 13 '--minimum-zoom=10' '--maximum-zoom=13' ./out/all.geojson",
+"json": "{\"vector_layers\":[{\"id\":\"all\",\"description\":\"\",\"minzoom\":10,\"maxzoom\":13,\"fields\":{\"no2\":\"Number\",\"pm10\":\"Number\",\"pm2.5\":\"Number\"}}],\"tilestats\":{\"layerCount\":1,\"layers\":[{\"layer\":\"all\",\"count\":360765,\"geometry\":\"Polygon\",\"attributeCount\":3,\"attributes\":[{\"attribute\":\"no2\",\"count\":44,\"type\":\"number\",\"values\":[10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,7,8,9],\"min\":7,\"max\":50},{\"attribute\":\"pm10\",\"count\":12,\"type\":\"number\",\"values\":[13,14,15,16,17,18,19,20,21,22,23,24],\"min\":13,\"max\":24},{\"attribute\":\"pm2.5\",\"count\":7,\"type\":\"number\",\"values\":[10,11,12,13,14,15,9],\"min\":9,\"max\":15}]}]}}"
+}
