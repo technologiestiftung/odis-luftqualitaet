@@ -63,7 +63,7 @@ export const MapPopup = ({
             </li>
           ))}
           <li className="pt-2">
-            Die Luftqualtität ist hier <span className="font-bold">gut</span>
+            Die Luftqualtität ist hier <span className="font-bold">???</span>
           </li>
         </ul>
       </div>

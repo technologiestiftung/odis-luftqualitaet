@@ -10,6 +10,7 @@ export function mapStyle(pollutionType, location) {
     sources: {
       osmBaseMap: {
         type: "raster",
+        //           "https://sgx.geodatenzentrum.de/wmts_basemapde/tile/1.0.0/de_basemapde_web_raster_grau/default/DE_EPSG_3857_ADV/{z}/{x}/{y}.png",
         tiles: ["https://tile.openstreetmap.org/{z}/{x}/{y}.png"],
         tileSize: 256,
       },
@@ -60,7 +61,7 @@ export function mapStyle(pollutionType, location) {
         paint: {
           "raster-saturation": -1,
           "raster-contrast": 0.1,
-          "raster-opacity": 0.3,
+          "raster-opacity": 0.6,
         },
       },
       {
