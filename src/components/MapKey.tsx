@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  categoryColors,
-  pollutantExplanation,
-  pollutantLabels,
-  categoryLabels,
-} from "@/lib/mapUtils";
+import { categoryColors, categoryLabels } from "@/lib/mapUtils";
 
 interface MapKeyProps {
-  pollutionType: string;
   pollutionValues: object | null; // Expecting values 1-5
 }
 
-export const MapKey = ({ pollutionType, pollutionValues }: MapKeyProps) => {
+export const MapKey = ({ pollutionValues }: MapKeyProps) => {
   return (
     <div className="pointer-events-none absolute bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
       <div className="bg-white border-2 border-black p-2">
@@ -24,6 +18,7 @@ export const MapKey = ({ pollutionType, pollutionValues }: MapKeyProps) => {
             <div
               key={index}
               className={`text-xs flex-1 h-full ${
+                // @ts-expect-error placeholder
                 pollutionValues && pollutionValues["Worst_Index"] === index + 1
                   ? "border-2 border-red-600"
                   : ""

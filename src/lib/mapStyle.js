@@ -1,6 +1,6 @@
-import { fillColorStyle, fillOpacity, fillStyle } from "@/lib/mapUtils";
+import { fillOpacity, fillStyle } from "@/lib/mapUtils";
 
-export function mapStyle(pollutionType, location) {
+export function mapStyle(location) {
   const tileBounds = [13.087593, 52.337607, 13.762103, 52.675884];
 
   return {
@@ -23,27 +23,6 @@ export function mapStyle(pollutionType, location) {
         maxzoom: 13,
         bounds: tileBounds,
       },
-      // merged_no2: {
-      //   type: "vector",
-      //   tiles: [location + "tiles/merged_no2/{z}/{x}/{y}.pbf"],
-      //   minzoom: 1,
-      //   maxzoom: 10,
-      //   bounds: tileBounds,
-      // },
-      // merged_pm10: {
-      //   type: "vector",
-      //   tiles: [location + "tiles/merged_pm10/{z}/{x}/{y}.pbf"],
-      //   minzoom: 1,
-      //   maxzoom: 10,
-      //   bounds: tileBounds,
-      // },
-      // merged_pm25: {
-      //   type: "vector",
-      //   tiles: [location + "tiles/merged_pm25/{z}/{x}/{y}.pbf"],
-      //   minzoom: 1,
-      //   maxzoom: 10,
-      //   bounds: tileBounds,
-      // },
       worst_index: {
         type: "vector",
         tiles: [location + "tiles/worst_index/{z}/{x}/{y}.pbf"],

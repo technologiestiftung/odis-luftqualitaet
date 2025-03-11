@@ -129,53 +129,6 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
           ))}
         </ul>
       )}
-
-      {/* <button
-        className="bottom-0 fixed"
-        onClick={() =>
-          setUserSearchResult({
-            type: "Feature",
-            bbox: [
-              13.423187427557354, 52.56126249680607, 13.42442781714787,
-              52.56247678294678,
-            ],
-            geometry: {
-              type: "Point",
-              coordinates: [13.42427, 52.56163],
-            },
-            properties: {
-              text: "Asta-Nielsen-Straße, 13189 Berlin - Pankow",
-              typ: "Strasse",
-              score: 1.540029,
-              bbox: {
-                type: "Polygon",
-                coordinates: [
-                  [
-                    [13.42319, 52.56126],
-                    [13.42319, 52.56248],
-                    [13.42443, 52.56248],
-                    [13.42443, 52.56126],
-                    [13.42319, 52.56126],
-                  ],
-                ],
-              },
-              ags: "11000003",
-              rs: "110000000003",
-              schluessel: "110000000003030708533",
-              bundesland: "Berlin",
-              verwgem: "Berlin",
-              gemeinde: "Pankow",
-              plz: "13189",
-              ort: "Berlin",
-              ortsteil: "Pankow",
-              strasse: "Asta-Nielsen-Straße",
-            },
-            id: "DEGAS00000096545",
-          })
-        }
-      >
-        buttonbuttonbutton
-      </button> */}
     </div>
   );
 };

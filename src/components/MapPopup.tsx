@@ -57,6 +57,7 @@ export const MapPopup = ({
         <p className="text-base mb-2">
           Der Bedarf für Luftverbesserung ist an diesem Ort{" "}
           <span className="font-bold">
+            {/* @ts-expect-error placeholder */}
             {categoryLabels[features["Worst_Index"] - 1]}
           </span>
           .

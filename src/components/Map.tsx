@@ -2,15 +2,14 @@ import React, { useRef, useEffect, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { mapStyle } from "@/lib/mapStyle";
-import { fillColorStyle, fillOpacity, fillStyle } from "@/lib/mapUtils";
 import { MapNavs } from "@/components/MapNavs";
 import { MapPopup } from "@/components/MapPopup";
 
-const layerNames = {
-  no2: "merged_no2",
-  pm10: "merged_pm10",
-  "pm2.5": "merged_pm25",
-};
+// const layerNames = {
+//   no2: "merged_no2",
+//   pm10: "merged_pm10",
+//   "pm2.5": "merged_pm25",
+// };
 
 // @ts-expect-error placeholder
 const setMapInteraction = (map, enabled) => {
@@ -32,14 +31,12 @@ const setMapInteraction = (map, enabled) => {
 interface MapProps {
   userSearchResult: null | object;
   setUserSearchResult: React.Dispatch<React.SetStateAction<object> | null>;
-  pollutionType: string;
   setPollutionValues: React.Dispatch<React.SetStateAction<object> | null>;
 }
 
 export const MapComponent = ({
   userSearchResult,
   setUserSearchResult,
-  pollutionType,
   setPollutionValues,
 }: MapProps) => {
   const mapContainer = useRef<HTMLDivElement>(null);
@@ -107,8 +104,6 @@ export const MapComponent = ({
         features: features[0].properties,
       });
 
-      console.log("features[0].properties", features[0].properties);
-
       setPollutionValues(features[0].properties);
     });
   };
@@ -149,10 +144,7 @@ export const MapComponent = ({
     map.current = new maplibregl.Map({
       container: mapContainer.current,
       // @ts-expect-error placeholder
-      style: mapStyle(
-        pollutionType,
-        window.location.origin + window.location.pathname
-      ),
+      style: mapStyle(window.location.origin + window.location.pathname),
       attributionControl: false,
       // hash: true,
       minZoom: 5,
