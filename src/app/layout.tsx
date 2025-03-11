@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "",
-  description: "",
+  title: "Luftqualitätskarte für Berlin",
+  description: "Wo gibt es Bedarf für Luftverbesserung in Berlin.",
 };
 
 export default function RootLayout({
