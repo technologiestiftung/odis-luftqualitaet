@@ -17,6 +17,7 @@ export default function Home() {
         width: "80%",
         height: "585px",
         padding: "30px",
+        maxWidth: "800px",
       }}
     >
       <main className="w-full h-full justify-content content-center text-center relative">
