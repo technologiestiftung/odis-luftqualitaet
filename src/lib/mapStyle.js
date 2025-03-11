@@ -1,4 +1,4 @@
-import { fillColorStyle, fillOpacity } from "@/lib/mapUtils";
+import { fillColorStyle, fillOpacity, fillStyle } from "@/lib/mapUtils";
 
 export function mapStyle(pollutionType, location) {
   const tileBounds = [13.087593, 52.337607, 13.762103, 52.675884];
@@ -8,7 +8,7 @@ export function mapStyle(pollutionType, location) {
     version: 8,
     metadata: {},
     sources: {
-      osmBaseMap: {
+      baseMap: {
         type: "raster",
         tiles: [
           "https://sgx.geodatenzentrum.de/wmts_basemapde/tile/1.0.0/de_basemapde_web_raster_grau/default/GLOBAL_WEBMERCATOR/{z}/{y}/{x}.png",
@@ -23,23 +23,30 @@ export function mapStyle(pollutionType, location) {
         maxzoom: 13,
         bounds: tileBounds,
       },
-      merged_no2: {
+      // merged_no2: {
+      //   type: "vector",
+      //   tiles: [location + "tiles/merged_no2/{z}/{x}/{y}.pbf"],
+      //   minzoom: 1,
+      //   maxzoom: 10,
+      //   bounds: tileBounds,
+      // },
+      // merged_pm10: {
+      //   type: "vector",
+      //   tiles: [location + "tiles/merged_pm10/{z}/{x}/{y}.pbf"],
+      //   minzoom: 1,
+      //   maxzoom: 10,
+      //   bounds: tileBounds,
+      // },
+      // merged_pm25: {
+      //   type: "vector",
+      //   tiles: [location + "tiles/merged_pm25/{z}/{x}/{y}.pbf"],
+      //   minzoom: 1,
+      //   maxzoom: 10,
+      //   bounds: tileBounds,
+      // },
+      worst_index: {
         type: "vector",
-        tiles: [location + "tiles/merged_no2/{z}/{x}/{y}.pbf"],
-        minzoom: 1,
-        maxzoom: 10,
-        bounds: tileBounds,
-      },
-      merged_pm10: {
-        type: "vector",
-        tiles: [location + "tiles/merged_pm10/{z}/{x}/{y}.pbf"],
-        minzoom: 1,
-        maxzoom: 10,
-        bounds: tileBounds,
-      },
-      merged_pm25: {
-        type: "vector",
-        tiles: [location + "tiles/merged_pm25/{z}/{x}/{y}.pbf"],
+        tiles: [location + "tiles/worst_index/{z}/{x}/{y}.pbf"],
         minzoom: 1,
         maxzoom: 10,
         bounds: tileBounds,
@@ -54,9 +61,9 @@ export function mapStyle(pollutionType, location) {
         },
       },
       {
-        id: "osmBaseMap",
+        id: "baseMap",
         type: "raster",
-        source: "osmBaseMap",
+        source: "baseMap",
         layout: {
           // visibility: "visisible",
         },
@@ -73,20 +80,20 @@ export function mapStyle(pollutionType, location) {
         maxzoom: 24,
         paint: {
           "fill-opacity": fillOpacity,
-          "fill-color": fillColorStyle(pollutionType),
+          "fill-color": fillStyle,
           "fill-antialias": false,
         },
       },
       {
         id: "zoomOutLayer",
         type: "fill",
-        source: "merged_no2",
-        "source-layer": "merged_no2",
+        source: "worst_index",
+        "source-layer": "worst_index",
         minzoom: 1,
         maxzoom: 12,
         paint: {
           "fill-opacity": fillOpacity,
-          "fill-color": fillColorStyle(pollutionType),
+          "fill-color": fillStyle,
           "fill-antialias": false,
         },
       },

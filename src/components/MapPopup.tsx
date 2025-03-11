@@ -1,5 +1,9 @@
 import ClearIcon from "@/components/icons/clear-icon";
-import { pollutantExplanation, pollutantLabels } from "@/lib/mapUtils";
+import {
+  pollutantExplanation,
+  pollutantLabels,
+  categoryLabels,
+} from "@/lib/mapUtils";
 
 interface MapPopupProps {
   screenCoordinates: { x: number; y: number };
@@ -49,22 +53,30 @@ export const MapPopup = ({
         >
           <ClearIcon />
         </button>
+
+        <p className="text-base mb-2">
+          Der Bedarf für Luftverbesserung ist an diesem Ort{" "}
+          <span className="font-bold">
+            {categoryLabels[features["Worst_Index"] - 1]}
+          </span>
+          .
+        </p>
+
         <ul className="text-base">
-          {Object.entries(features).map(([key, value]) => (
-            <li key={key}>
-              <span className="w-[180px] inline-block">
-                {/* @ts-expect-error placeholder placeholder*/}
-                <span className="font-bold">{pollutantLabels[key]}</span>
-                {/* @ts-expect-error placeholder placeholder*/}
-                <span> - {pollutantExplanation[key]} </span>
-              </span>
-              {"| "}
-              <span className="font-bold">{value} ppm</span>
-            </li>
-          ))}
-          <li className="pt-2">
-            Bedarf für Luftverbesserung: <span className="font-bold">???</span>
-          </li>
+          {Object.entries(features)
+            .slice(0, 3)
+            .map(([key, value]) => (
+              <li key={key}>
+                <span className="w-[180px] inline-block">
+                  {/* @ts-expect-error placeholder placeholder*/}
+                  <span className="font-bold">{pollutantLabels[key]}</span>
+                  {/* @ts-expect-error placeholder placeholder*/}
+                  <span> - {pollutantExplanation[key]} </span>
+                </span>
+                {"| "}
+                <span className="font-bold">{value} ppm</span>
+              </li>
+            ))}
         </ul>
       </div>
     </div>

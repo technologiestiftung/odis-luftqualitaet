@@ -2,7 +2,7 @@ import React, { useRef, useEffect, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
 import { mapStyle } from "@/lib/mapStyle";
-import { fillColorStyle, fillOpacity } from "@/lib/mapUtils";
+import { fillColorStyle, fillOpacity, fillStyle } from "@/lib/mapUtils";
 import { MapNavs } from "@/components/MapNavs";
 import { MapPopup } from "@/components/MapPopup";
 
@@ -107,6 +107,8 @@ export const MapComponent = ({
         features: features[0].properties,
       });
 
+      console.log("features[0].properties", features[0].properties);
+
       setPollutionValues(features[0].properties);
     });
   };
@@ -152,19 +154,24 @@ export const MapComponent = ({
         window.location.origin + window.location.pathname
       ),
       attributionControl: false,
-      hash: true,
+      // hash: true,
       minZoom: 5,
       maxZoom: 14,
       center: [13.3915, 52.49899],
-      zoom: 13,
+      zoom: 10,
       maxBounds: [
-        [13.046434258466917, 52.30190843622876],
-        [13.820874468731887, 52.69894396430871],
+        12.088399568051996, 51.83535247581585, 14.96247925084541,
+        53.492513056341386,
       ],
       padding: 350,
       dragRotate: false,
       pitchWithRotate: false,
     });
+
+    map.current?.fitBounds([
+      [13.046434258466917, 52.30190843622876],
+      [13.820874468731887, 52.69894396430871],
+    ]);
 
     map.current.on("click", (e) => {
       if (!map.current) return;
@@ -206,35 +213,31 @@ export const MapComponent = ({
     });
   }, []);
 
-  useEffect(() => {
-    if (!map.current || !map.current.loaded()) return;
+  // useEffect(() => {
+  //   if (!map.current || !map.current.loaded()) return;
 
-    map.current.setPaintProperty(
-      "zoomInLayer",
-      "fill-color",
-      fillColorStyle(pollutionType)
-    );
+  //   map.current.setPaintProperty("zoomInLayer", "fill-color", fillStyle);
 
-    if (map.current.getLayer("zoomOutLayer")) {
-      map.current.removeLayer("zoomOutLayer");
+  //   if (map.current.getLayer("zoomOutLayer")) {
+  //     map.current.removeLayer("zoomOutLayer");
 
-      map.current.addLayer({
-        id: "zoomOutLayer",
-        type: "fill",
-        source: layerNames[pollutionType as keyof typeof layerNames],
-        // @ts-expect-error placeholder
-        "source-layer": layerNames[pollutionType],
-        minzoom: 1,
-        maxzoom: 12,
-        paint: {
-          "fill-opacity": fillOpacity,
-          // @ts-expect-error placeholder
-          "fill-color": fillColorStyle(pollutionType),
-          "fill-antialias": false,
-        },
-      });
-    }
-  }, [pollutionType]);
+  //     map.current.addLayer({
+  //       id: "zoomOutLayer",
+  //       type: "fill",
+  //       source: layerNames[pollutionType as keyof typeof layerNames],
+  //       // @ts-expect-error placeholder
+  //       "source-layer": layerNames[pollutionType],
+  //       minzoom: 1,
+  //       maxzoom: 12,
+  //       paint: {
+  //         "fill-opacity": fillOpacity,
+  //         // @ts-expect-error placeholder
+  //         "fill-color": fillStyle,
+  //         "fill-antialias": false,
+  //       },
+  //     });
+  //   }
+  // }, [pollutionType]);
 
   return (
     <div ref={mapContainer} className="w-full h-full relative">

@@ -1,0 +1,16 @@
+{
+"name": "../public/tiles/worst_index",
+"description": "../public/tiles/worst_index",
+"version": "2",
+"minzoom": "1",
+"maxzoom": "10",
+"center": "13.535156,52.589571,10",
+"bounds": "13.087593,52.337607,13.762103,52.675884",
+"antimeridian_adjusted_bounds": "13.087593,52.337607,13.762103,52.675884",
+"type": "overlay",
+"strategies": "[{},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":8},{\"tiny_polygons\":8},{\"tiny_polygons\":7},{\"tiny_polygons\":7},{}]",
+"format": "pbf",
+"generator": "tippecanoe v2.31.0",
+"generator_options": "tippecanoe --output-to-directory ../public/tiles/worst_index --no-tile-compression --force -B 13 '--minimum-zoom=1' '--maximum-zoom=10' --no-tile-size-limit ./out/worst_index.geojson",
+"json": "{\"vector_layers\":[{\"id\":\"worst_index\",\"description\":\"\",\"minzoom\":1,\"maxzoom\":10,\"fields\":{\"Worst_Index\":\"Number\"}}],\"tilestats\":{\"layerCount\":1,\"layers\":[{\"layer\":\"worst_index\",\"count\":4,\"geometry\":\"Polygon\",\"attributeCount\":1,\"attributes\":[{\"attribute\":\"Worst_Index\",\"count\":4,\"type\":\"number\",\"values\":[2,3,4,5],\"min\":2,\"max\":5}]}]}}"
+}

@@ -1,74 +1,45 @@
-import React, { useEffect, useState } from "react";
-import minMaxValues from "@/lib/pollutant_stats.json";
+import React from "react";
 import {
-  minMaxColors,
+  categoryColors,
   pollutantExplanation,
   pollutantLabels,
+  categoryLabels,
 } from "@/lib/mapUtils";
 
 interface MapKeyProps {
   pollutionType: string;
-  pollutionValues: object | null;
+  pollutionValues: object | null; // Expecting values 1-5
 }
 
 export const MapKey = ({ pollutionType, pollutionValues }: MapKeyProps) => {
-  const [indicatorPosition, setIndicatorPosition] = useState(0);
-
-  // Get min and max values for the selected pollution type
-  // @ts-expect-error placeholder
-  const min = minMaxValues[pollutionType][0];
-  // @ts-expect-error placeholder
-  const max = minMaxValues[pollutionType][1];
-  // @ts-expect-error placeholder
-  const currentValue = pollutionValues?.[pollutionType] ?? min;
-
-  // Calculate indicator position as a percentage
-  useEffect(() => {
-    if (min !== max) {
-      const percent = ((currentValue - min) / (max - min)) * 100;
-      setIndicatorPosition(Math.min(100, Math.max(0, percent))); // Keep within bounds
-    }
-  }, [pollutionType, pollutionValues, min, max, currentValue]);
-
   return (
     <div className="pointer-events-none absolute bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
       <div className="bg-white border-2 border-black p-2">
-        {" "}
         {/* Title */}
-        <p className="text-xs text-left mb-2">
-          Jahresdurchschnitt {/* @ts-expect-error placeholder placeholder*/}
-          <span className="font-bold">{pollutantLabels[pollutionType]} </span>(
-          {/* @ts-expect-error placeholder placeholder*/}
-          {pollutantExplanation[pollutionType]})
-        </p>
-        {/* Labels */}
-        <div className="flex justify-between text-xs">
-          <span>wenig belastet</span>
-          <span>stärker belastet</span>
-        </div>
-        {/* Gradient Bar */}
-        <div className="relative w-full h-5 mt-1 overflow-visible">
-          <div
-            className="absolute inset-0 opacity-60"
-            style={{
-              background: `linear-gradient(to right, ${minMaxColors[0]}, ${minMaxColors[1]})`,
-            }}
-          />
+        <p className="text-xs text-left">Bedarf für Luftverbesserung</p>
 
-          {/* Indicator */}
-          {pollutionValues && (
+        {/* Discrete Category Bar */}
+        <div className="relative w-full h-5 mt-1 overflow-visible flex">
+          {categoryColors.map((color, index) => (
             <div
-              className="absolute top-0 bottom-0 w-[2px] bg-[#e40422] transition-all duration-500"
-              style={{ left: `${indicatorPosition}%` }}
-            >
-              <div className="w-3 h-3 bg-[#e40422] rounded-full absolute -top-2 left-1/2 transform -translate-x-1/2"></div>
-            </div>
-          )}
+              key={index}
+              className={`text-xs flex-1 h-full ${
+                pollutionValues && pollutionValues["Worst_Index"] === index + 1
+                  ? "border-2 border-red-600"
+                  : ""
+              }`}
+              style={{ backgroundColor: color }}
+            />
+          ))}
         </div>
-        {/* Min & Max Values */}
+
+        {/* Category Labels */}
         <div className="flex justify-between mt-1 text-xs">
-          <span>min. {min} ppm</span>
-          <span>max. {max} ppm</span>
+          {categoryLabels.map((label, index) => (
+            <span key={index} className="text-center w-1/5">
+              {label}
+            </span>
+          ))}
         </div>
       </div>
     </div>
