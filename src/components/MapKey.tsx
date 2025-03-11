@@ -7,17 +7,17 @@ interface MapKeyProps {
 
 export const MapKey = ({ pollutionValues }: MapKeyProps) => {
   return (
-    <div className="pointer-events-none absolute bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
+    <div className="text-sm pointer-events-none absolute bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
       <div className="bg-white border-2 border-black p-2">
         {/* Title */}
-        <p className="text-xs text-left">Bedarf für Luftverbesserung</p>
+        <p className="text-left">Bedarf für Luftverbesserung</p>
 
         {/* Discrete Category Bar */}
         <div className="relative w-full h-5 mt-1 overflow-visible flex">
           {categoryColors.map((color, index) => (
             <div
               key={index}
-              className={`text-xs flex-1 h-full ${
+              className={`flex-1 h-full ${
                 // @ts-expect-error placeholder
                 pollutionValues && pollutionValues["Worst_Index"] === index + 1
                   ? "border-2 border-red-600"

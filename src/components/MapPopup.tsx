@@ -22,7 +22,7 @@ export const MapPopup = ({
 
   return (
     <div
-      className={`text-left absolute z-30 
+      className={`drop-shadow-lg text-left absolute z-30 
         ${isMobile ? "w-full top-0 left-0" : "w-[300px]"}
       `}
       style={
@@ -36,11 +36,17 @@ export const MapPopup = ({
       }
     >
       <div className="p-2 border-[#f5b4cb] bg-white border-2 relative m-2">
-        <p className="font-bold text-base pb-2 pr-8">
+        {/* <p className="font-bold text-base pb-2 pr-8">
           {userSearchResult?.properties?.text
             ? userSearchResult.properties.text
             : "\u200B"}
-        </p>
+        </p> */}
+
+        {userSearchResult?.properties?.text && (
+          <p className="text-xs pb-2 pr-8">
+            {userSearchResult?.properties?.text}
+          </p>
+        )}
 
         <button
           className="absolute top-2 right-1  text-white px-2 py-1 rounded"
@@ -54,7 +60,7 @@ export const MapPopup = ({
           <ClearIcon />
         </button>
 
-        <p className="text-base mb-2">
+        <p className="text-base mb-2 pr-8">
           Der Bedarf für Luftverbesserung ist an diesem Ort{" "}
           <span className="font-bold">
             {/* @ts-expect-error placeholder */}
@@ -62,20 +68,22 @@ export const MapPopup = ({
           </span>
           .
         </p>
-
-        <ul className="text-base">
+        <p className="text-sm mb-2">
+          Jahresdurchschnitt für Luftschadstoffen (in Mikrogramm pro m³):
+        </p>
+        <ul className="text-sm">
           {Object.entries(features)
             .slice(0, 3)
             .map(([key, value]) => (
               <li key={key}>
-                <span className="w-[180px] inline-block">
+                <span className="w-[145px] inline-block">
                   {/* @ts-expect-error placeholder placeholder*/}
                   <span className="font-bold">{pollutantLabels[key]}</span>
                   {/* @ts-expect-error placeholder placeholder*/}
                   <span> - {pollutantExplanation[key]} </span>
                 </span>
                 {"| "}
-                <span className="font-bold">{value} ppm</span>
+                <span className="font-bold">{value}</span> µg/m³
               </li>
             ))}
         </ul>

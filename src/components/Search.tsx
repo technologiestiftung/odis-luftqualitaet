@@ -3,7 +3,7 @@ import SearchIcon from "@/components/icons/search-icon";
 import ClearIcon from "@/components/icons/clear-icon";
 
 const searchParam =
-  "https://gdi.berlin.de/searches/bkg/geosearch?bbox=12.45,52.35,13.75,52.75&outputformat=json&srsName=EPSG:4326&count=3&query=";
+  "https://gdi.berlin.de/searches/bkg/geosearch?bbox=12.45,52.35,13.75,52.75&outputformat=json&srsName=EPSG:4326&count=4&query=";
 
 interface SearchProps {
   setUserSearchResult: React.Dispatch<React.SetStateAction<object | null>>;
@@ -111,7 +111,7 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
           {results.map((item, index) => (
             <li
               key={index}
-              className={`px-4 py-2 cursor-pointer hover:bg-gray-200 ${
+              className={`text-left px-4 py-2 cursor-pointer hover:bg-gray-200 ${
                 selectedIndex === index ? "bg-gray-300" : ""
               }`}
               onMouseDown={() => {
