@@ -5,12 +5,6 @@ import { mapStyle } from "@/lib/mapStyle";
 import { MapNavs } from "@/components/MapNavs";
 import { MapPopup } from "@/components/MapPopup";
 
-// const layerNames = {
-//   no2: "merged_no2",
-//   pm10: "merged_pm10",
-//   "pm2.5": "merged_pm25",
-// };
-
 // @ts-expect-error placeholder
 const setMapInteraction = (map, enabled) => {
   if (!map) return;
@@ -161,10 +155,24 @@ export const MapComponent = ({
       scrollZoom: window.location.origin === "http://localhost:3000",
     });
 
-    map.current?.fitBounds([
-      [13.046434258466917, 52.30190843622876],
-      [13.820874468731887, 52.69894396430871],
-    ]);
+    map.current?.fitBounds(
+      [
+        [13.046434258466917, 52.30190843622876],
+        [13.820874468731887, 52.69894396430871],
+      ],
+      {
+        padding: 10,
+        duration: 0,
+      }
+    );
+
+    // const geolocateControl = new maplibregl.GeolocateControl({
+    //   positionOptions: { enableHighAccuracy: true },
+    //   trackUserLocation: true, // Keep tracking user location
+    //   showAccuracyCircle: false, // Remove accuracy circle
+    // });
+
+    // map.current.addControl(geolocateControl, "top-right"); // Place button at top-right
 
     map.current.on("click", (e) => {
       if (!map.current) return;

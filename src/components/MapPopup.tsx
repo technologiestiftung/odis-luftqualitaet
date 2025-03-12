@@ -68,8 +68,10 @@ export const MapPopup = ({
           </span>
           .
         </p>
+
         <p className="text-sm mb-2">
-          Jahresdurchschnitt für Luftschadstoffen (in Mikrogramm pro m³):
+          Jahresdurchschnitt der berechneten Luftschadstoffe in Mikrogramm pro
+          m³:
         </p>
         <ul className="text-sm">
           {Object.entries(features)
