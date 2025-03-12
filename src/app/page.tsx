@@ -32,12 +32,23 @@ export default function Home() {
           setPollutionValues={setPollutionValues}
         ></MapComponent>
         <MapKey pollutionValues={pollutionValues}></MapKey>
-        <p className="absolute left-0 bottom-0 pl-2 text-xs opacity-35">
-          <a href="">Impressum</a>
-          <a href="">Erklärung zur Barrierefreiheit</a>
+        <p className="absolute left-0 bottom-4 md:bottom-0 pl-2 text-xs opacity-75 text-black">
+          <a
+            target="_blank"
+            href="https://www.technologiestiftung-berlin.de/impressum"
+            className="pr-2"
+          >
+            Impressum
+          </a>
+          <a
+            target="_blank"
+            href="https://www.technologiestiftung-berlin.de/erklaerung-zur-barrierefreiheit"
+          >
+            Erklärung zur Barrierefreiheit
+          </a>
         </p>
-        <p className="absolute right-0 bottom-0 pl-2 text-xs opacity-35">
-          © OpenStreetMap contributors
+        <p className="absolute left-0 md:left-auto md:right-0 bottom-0 pl-2 pr-2 text-xs opacity-75">
+          © 2024 basemap.de / BKG | Datenquellen: © GeoBasis-DE
         </p>
       </main>
     </div>

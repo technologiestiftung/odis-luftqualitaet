@@ -62,6 +62,8 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 ## Related Projects
 
 [Aktueller Luftqualitätsindex Berlin](https://luftdaten.berlin.de/lqi)
+[Weniger dicke Luft für Berlin](https://www.berlin.de/weniger-dicke-luft/)
+[Luftschadstoffprognose](https://www.berlin.de/weniger-dicke-luft/projekte-und-massnahmen/luftschadstoffprognose/)
 
 ## Content Licensing
 

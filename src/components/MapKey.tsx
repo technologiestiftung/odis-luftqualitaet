@@ -12,7 +12,7 @@ interface MapKeyProps {
 
 export const MapKey = ({ pollutionValues }: MapKeyProps) => {
   return (
-    <div className="text-sm pointer-events-none absolute bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
+    <div className="text-sm pointer-events-none absolute bottom-6 md:bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
       <div className="bg-white border-2 border-black p-2">
         {/* Title */}
         <p className="text-left">Bedarf für Luftverbesserung</p>
