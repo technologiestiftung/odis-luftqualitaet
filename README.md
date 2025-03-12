@@ -8,18 +8,15 @@
 
 # Luftqulitäts Map
 
-```json
-{
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>technologiestiftung/renovate-config"],
-  "baseBranches": ["staging"]
-}
-```
-
 ## Prerequisites
 
-**npm** to develop the app  
-**python** to run the data preparation script
+- App
+
+  - **npm** to develop the app
+
+- Data Update
+  - **python** to run the data preparation jupiter notebook.
+  - **tippecanoe** to create vector tiles.
 
 ## Usage or Deployment
 
@@ -34,6 +31,10 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## Data preparation
+
+To create/update the vector tiles (the data displayed on the map) run the [jupiter notebook](./data-preparation/create_grid.ipynb) which does all the data preparation.
 
 ## Contributing
 
@@ -60,6 +61,8 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 
 ## Related Projects
 
+[Aktueller Luftqualitätsindex Berlin](https://luftdaten.berlin.de/lqi)
+
 ## Content Licensing
 
 Texts and content available as [CC BY](https://creativecommons.org/licenses/by/3.0/de/).
@@ -69,24 +72,31 @@ Texts and content available as [CC BY](https://creativecommons.org/licenses/by/3
 <table>
   <tr>
     <td>
-      Made by <a href="https://citylab-berlin.org/de/start/">
+      Made by: <a href="https://odis-berlin.de">
         <br />
         <br />
-        <img width="200" src="https://logos.citylab-berlin.org/logo-citylab-color.svg" alt="Link to the CityLAB Berlin website" />
+        <img width="200" src="https://logos.citylab-berlin.org/logo-odis-berlin.svg" />
       </a>
     </td>
     <td>
-      A project by <a href="https://www.technologiestiftung-berlin.de/">
+      Together with: <a href="https://citylab-berlin.org/en/start/">
         <br />
         <br />
-        <img width="150" src="https://logos.citylab-berlin.org/logo-technologiestiftung-berlin-de.svg" alt="Link to the Technologiestiftung Berlin website" />
+        <img width="200" src="https://logos.citylab-berlin.org/logo-citylab-berlin.svg" />
+      </a>
+    </td>
+    <td>
+      A project by: <a href="https://www.technologiestiftung-berlin.de/en/">
+        <br />
+        <br />
+        <img width="150" src="https://logos.citylab-berlin.org/logo-technologiestiftung-berlin-en.svg" />
       </a>
     </td>
     <td>
       Supported by <a href="https://www.berlin.de/rbmskzl/">
         <br />
         <br />
-        <img width="80" src="https://logos.citylab-berlin.org/logo-berlin-senatskanzelei-de.svg" alt="Link to the Senate Chancellery of Berlin"/>
+        <img width="80" src="https://citylab-berlin.org/wp-content/uploads/2021/12/B_RBmin_Skzl_Logo_DE_V_PT_RGB-300x200.png" />
       </a>
     </td>
   </tr>

@@ -158,6 +158,7 @@ export const MapComponent = ({
       padding: 350,
       dragRotate: false,
       pitchWithRotate: false,
+      scrollZoom: false,
     });
 
     map.current?.fitBounds([

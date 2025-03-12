@@ -32,7 +32,11 @@ export default function Home() {
           setPollutionValues={setPollutionValues}
         ></MapComponent>
         <MapKey pollutionValues={pollutionValues}></MapKey>
-        <p className="absolute right-0 bottom-0 pr-2 text-xs opacity-35">
+        <p className="absolute left-0 bottom-0 pl-2 text-xs opacity-35">
+          <a href="">Impressum</a>
+          <a href="">Erklärung zur Barrierefreiheit</a>
+        </p>
+        <p className="absolute right-0 bottom-0 pl-2 text-xs opacity-35">
           © OpenStreetMap contributors
         </p>
       </main>
