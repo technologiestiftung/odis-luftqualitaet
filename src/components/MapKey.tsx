@@ -5,6 +5,14 @@ interface MapKeyProps {
   pollutionValues: object | null; // Expecting values 1-5
 }
 
+const hexToRgb = (hex: string) => {
+  const bigint = parseInt(hex.slice(1), 16);
+  const r = (bigint >> 16) & 255;
+  const g = (bigint >> 8) & 255;
+  const b = bigint & 255;
+  return `${r}, ${g}, ${b}`;
+};
+
 export const MapKey = ({ pollutionValues }: MapKeyProps) => {
   return (
     <div className="text-sm pointer-events-none absolute bottom-2 sm:left-1/2 sm:transform sm:-translate-x-1/2 z-10 w-full sm:max-w-[400px] p-2 px-2 pr-[55px] sm:pr-2">
@@ -17,14 +25,18 @@ export const MapKey = ({ pollutionValues }: MapKeyProps) => {
           {categoryColors.map((color, index) => (
             <div
               key={index}
-              className={`flex-1 h-full ${
-                // @ts-expect-error placeholder
-                pollutionValues && pollutionValues["Worst_Index"] === index + 1
-                  ? "border-2 border-red-600"
-                  : ""
-              }`}
-              style={{ backgroundColor: color, opacity: fillOpacity }}
-            />
+              className="flex-1 h-full relative"
+              style={{
+                backgroundColor: `rgba(${hexToRgb(color)}, ${fillOpacity})`, // Convert hex to rgba
+                outline:
+                  pollutionValues &&
+                  // @ts-expect-error placeholder
+                  pollutionValues["Worst_Index"] === index + 1
+                    ? "3px solid #e40422"
+                    : "none",
+                outlineOffset: "-3px",
+              }}
+            ></div>
           ))}
         </div>
 
