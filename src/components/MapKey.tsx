@@ -1,5 +1,5 @@
 import React from "react";
-import { categoryColors, categoryLabels } from "@/lib/mapUtils";
+import { categoryColors, categoryLabels, fillOpacity } from "@/lib/mapUtils";
 
 interface MapKeyProps {
   pollutionValues: object | null; // Expecting values 1-5
@@ -23,7 +23,7 @@ export const MapKey = ({ pollutionValues }: MapKeyProps) => {
                   ? "border-2 border-red-600"
                   : ""
               }`}
-              style={{ backgroundColor: color }}
+              style={{ backgroundColor: color, opacity: fillOpacity }}
             />
           ))}
         </div>

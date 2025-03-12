@@ -158,7 +158,7 @@ export const MapComponent = ({
       padding: 350,
       dragRotate: false,
       pitchWithRotate: false,
-      scrollZoom: false,
+      scrollZoom: window.location.origin === "http://localhost:3000",
     });
 
     map.current?.fitBounds([
