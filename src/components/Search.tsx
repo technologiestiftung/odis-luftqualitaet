@@ -57,7 +57,7 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
         onSubmit={(e) => {
           e.preventDefault();
         }}
-        className="group grid grid-cols-1 grid-rows-1 items-center z-10"
+        className="group grid grid-cols-1 grid-rows-1 items-center z-10 max-w-[800px] mx-auto"
       >
         <input
           value={search}
@@ -96,18 +96,18 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
             <ClearIcon />
           </button>
           {/* <button
-            type="submit"
-            aria-label="submit"
-            className={`w-fit pointer-events-auto border-l-0 pl-2 pr-2.5 ${
-              hasFocus ? "border-focus-blue" : "border-l-black"
-            } border-2 border-black`}
+        type="submit"
+        aria-label="submit"
+        className={`w-fit pointer-events-auto border-l-0 pl-2 pr-2.5 ${
+          hasFocus ? "border-focus-blue" : "border-l-black"
+        } border-2 border-black`}
           >
-            <StartSearchIcon />
+        <StartSearchIcon />
           </button> */}
         </div>
       </form>
       {showDropdown && results.length > 0 && (
-        <ul className="relative z-20 w-full bg-white border border-black shadow-lg">
+        <ul className="relative z-20 w-full bg-white border border-black shadow-lg max-w-[800px] mx-auto">
           {results.map((item, index) => (
             <li
               key={index}

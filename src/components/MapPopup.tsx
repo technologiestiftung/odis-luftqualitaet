@@ -35,7 +35,7 @@ export const MapPopup = ({
             }
       }
     >
-      <div className="p-2 border-[#f5b4cb] bg-white border-2 relative m-2">
+      <div className="p-2 border-[#000] bg-white border-2 relative m-2">
         {/* <p className="font-bold text-base pb-2 pr-8">
           {userSearchResult?.properties?.text
             ? userSearchResult.properties.text
@@ -60,15 +60,18 @@ export const MapPopup = ({
           <ClearIcon />
         </button>
 
-        <p className="text-base mb-2 pr-8">
-          Der Bedarf für Luftverbesserung ist an diesem Ort{" "}
+        {/* underline decoration-sky-500"> */}
+        <p className="text-lg mb-2 pr-6">
+          An{" "}
+          <span className="underline decoration-2 underline-offset-4 decoration-[#e40422]">
+            diesem Ort
+          </span>{" "}
+          in der Bedarf für Luftverbesserung:{" "}
           <span className="font-bold">
             {/* @ts-expect-error placeholder */}
             {categoryLabels[features["Worst_Index"] - 1]}
           </span>
-          .
         </p>
-
         <p className="text-sm mb-2">
           Jahresdurchschnitt der berechneten Luftschadstoffe in Mikrogramm pro
           m³:

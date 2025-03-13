@@ -142,7 +142,7 @@ export const MapComponent = ({
       attributionControl: false,
       // hash: true,
       minZoom: 5,
-      maxZoom: 14,
+      maxZoom: 17,
       center: [13.3915, 52.49899],
       zoom: 10,
       maxBounds: [
