@@ -117,18 +117,33 @@ export const MapComponent = ({
     });
 
     map.current?.once("moveend", () => {
-      setMapInteraction(map.current, true);
       if (!map.current) return;
+
+      // Wait for the map to be fully loaded
+      if (!map.current.isStyleLoaded()) {
+        map.current.once("styledata", () => {
+          executeFeatureQuery(); // Function to handle queries after loading
+        });
+      } else {
+        executeFeatureQuery(); // Proceed if already loaded
+      }
+    });
+
+    const executeFeatureQuery = () => {
+      if (!map.current) return;
+      setMapInteraction(map.current, true);
+
       const newScreenPoint = map.current.project(
         // @ts-expect-error placeholder
         userSearchResult.geometry.coordinates
       );
+
       whenClicked(
         // @ts-expect-error placeholder
         { lngLat: userSearchResult.geometry.coordinates },
         newScreenPoint
       );
-    });
+    };
   }, [userSearchResult]);
 
   useEffect(() => {
