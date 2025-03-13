@@ -46,13 +46,6 @@ export default function Home() {
         >
           Impressum
         </a>
-        |{" "}
-        <a
-          target="_blank"
-          href="https://www.technologiestiftung-berlin.de/erklaerung-zur-barrierefreiheit"
-        >
-          Erklärung zur Barrierefreiheit
-        </a>
       </p>
       <p
         className="absolute left-0 md:left-auto md:right-0 bottom-0 pl-2 pr-0 md:pr-2 text-xs opacity-75"
