@@ -16308,7 +16308,7 @@
         "Vorratsbehälter, Speicherbauwerk"
       ],
       "layout": {
-        "visibility": "visible",
+        "visibility": "none",
         "icon-image": "Vorratsbehaelter",
         "icon-allow-overlap": false,
         "icon-padding": 0,
