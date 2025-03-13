@@ -166,13 +166,13 @@ export const MapComponent = ({
       }
     );
 
-    // const geolocateControl = new maplibregl.GeolocateControl({
-    //   positionOptions: { enableHighAccuracy: true },
-    //   trackUserLocation: true, // Keep tracking user location
-    //   showAccuracyCircle: false, // Remove accuracy circle
-    // });
+    const geolocateControl = new maplibregl.GeolocateControl({
+      positionOptions: { enableHighAccuracy: true },
+      trackUserLocation: true, // Keep tracking user location
+      showAccuracyCircle: false, // Remove accuracy circle
+    });
 
-    // map.current.addControl(geolocateControl, "top-right"); // Place button at top-right
+    map.current.addControl(geolocateControl, "bottom-right"); // Place button at top-right
 
     map.current.on("click", (e) => {
       if (!map.current) return;
@@ -213,32 +213,6 @@ export const MapComponent = ({
       }
     });
   }, []);
-
-  // useEffect(() => {
-  //   if (!map.current || !map.current.loaded()) return;
-
-  //   map.current.setPaintProperty("zoomInLayer", "fill-color", fillStyle);
-
-  //   if (map.current.getLayer("zoomOutLayer")) {
-  //     map.current.removeLayer("zoomOutLayer");
-
-  //     map.current.addLayer({
-  //       id: "zoomOutLayer",
-  //       type: "fill",
-  //       source: layerNames[pollutionType as keyof typeof layerNames],
-  //       // @ts-expect-error placeholder
-  //       "source-layer": layerNames[pollutionType],
-  //       minzoom: 1,
-  //       maxzoom: 12,
-  //       paint: {
-  //         "fill-opacity": fillOpacity,
-  //         // @ts-expect-error placeholder
-  //         "fill-color": fillStyle,
-  //         "fill-antialias": false,
-  //       },
-  //     });
-  //   }
-  // }, [pollutionType]);
 
   return (
     <div ref={mapContainer} className="w-full h-full relative">

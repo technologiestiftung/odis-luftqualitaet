@@ -6,7 +6,23 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# Luftqulitäts Map
+# Berlin Air Quality Map
+
+This interactive map allows you to explore the air quality in Berlin based on the yearly average for 2024.
+
+### 🚀 Features
+
+- Check Air Quality: Click on the map or enter an address to view the pollution level at that location.
+- Improvement Recommendation: Each location includes a "Bedarf für Luftverbesserung" (Need for Air Improvement) rating with the following categories:
+  - Sehr niedrig (Very Low)
+  - Niedrig (Low)
+  - Mäßig (Moderate)
+  - Erhöht (Elevated)
+  - Hoch (High)
+
+### 📊 Data Source
+
+The air quality data is sourced from the follwing project: [Luftschadstoffprognose](https://www.berlin.de/weniger-dicke-luft/projekte-und-massnahmen/luftschadstoffprognose/)
 
 ## Prerequisites
 
@@ -15,6 +31,7 @@
   - **npm** to develop the app
 
 - Data Update
+
   - **python** to run the data preparation jupiter notebook.
   - **tippecanoe** to create vector tiles.
 

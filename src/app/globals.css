@@ -14,3 +14,24 @@ body {
 .maplibregl-popup-content {
   padding: 0px !important;
 }
+
+.maplibregl-ctrl-bottom-right .maplibregl-ctrl {
+  margin: 0 8px 15px 0 !important;
+}
+
+.maplibregl-ctrl-group:not(:empty) {
+  box-shadow: none !important;
+}
+
+.maplibregl-ctrl-geolocate {
+  width: 43px !important;
+  height: 43px !important;
+  border: none !important;
+}
+.maplibregl-ctrl-group button {
+  background-color: white !important;
+}
+
+.maplibregl-ctrl-icon:hover {
+  opacity: 0.6;
+}
