@@ -66,7 +66,7 @@ export const MapPopup = ({
           <span className="underline decoration-2 underline-offset-4 decoration-[#e40422]">
             diesem Ort
           </span>{" "}
-          in der Bedarf für Luftverbesserung:{" "}
+          ist der Bedarf für Luftverbesserung:{" "}
           <span className="font-bold">
             {/* @ts-expect-error placeholder */}
             {categoryLabels[features["Worst_Index"] - 1]}
