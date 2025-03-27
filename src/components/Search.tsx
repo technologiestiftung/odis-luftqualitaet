@@ -23,7 +23,8 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
         .then((res) => res.json())
         .then((data) => {
           const feats = data.features.filter(
-            (d: any) => d.properties.ort === "Berlin"
+            // @ts-expect-error placeholder
+            (d) => d.properties.ort === "Berlin"
           );
 
           setResults(feats || []);
