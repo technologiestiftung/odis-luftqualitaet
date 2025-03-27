@@ -3,7 +3,7 @@ import SearchIcon from "@/components/icons/search-icon";
 import ClearIcon from "@/components/icons/clear-icon";
 
 const searchParam =
-  "https://gdi.berlin.de/searches/bkg/geosearch?bbox=12.45,52.35,13.75,52.75&outputformat=json&srsName=EPSG:4326&count=4&query=";
+  "https://gdi.berlin.de/searches/bkg/geosearch?bbox=13.086,52.336,13.771,52.676&outputformat=json&srsName=EPSG:4326&count=6&query=";
 
 interface SearchProps {
   setUserSearchResult: React.Dispatch<React.SetStateAction<object | null>>;
@@ -22,7 +22,11 @@ export const Search = ({ setUserSearchResult }: SearchProps) => {
       fetch(searchParam + encodeURIComponent(search))
         .then((res) => res.json())
         .then((data) => {
-          setResults(data.features || []);
+          const feats = data.features.filter(
+            (d: any) => d.properties.ort === "Berlin"
+          );
+
+          setResults(feats || []);
           setShowDropdown(true);
         })
         .catch((error) => console.error("Search error:", error));
