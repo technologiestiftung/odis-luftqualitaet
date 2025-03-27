@@ -15,7 +15,7 @@ export function fillColorStyle(pollutionType) {
   ];
 }
 export const fillOpacity = 0.7;
-export const minMaxColors = ["#FAD6E3", "#9D0C3F"];
+export const minMaxColors = ["#FAD6E3", "#6B002A"];
 export const pollutantLabels = {
   no2: "NO₂",
   pm10: "PM10",
@@ -31,8 +31,8 @@ export const categoryColors = [
   "#FAD6E3",
   "#E88AAA",
   "#D34D72",
-  "#B82054",
-  "#9D0C3F",
+  "#C0275D",
+  "#6B002A",
 ];
 
 export const fillStyle = [
