@@ -62,7 +62,7 @@ export const MapNavs = ({ map }: MapNavsProps) => {
   }, []);
 
   return (
-    <nav className="z-10 absolute bottom-[50px] right-0 grid p-2">
+    <nav className="z-10 absolute bottom-[8px] right-0 grid p-2">
       <button
         className="h-[43px] w-[43px] px-3 py-1 hover:cursor-pointer bg-white mb-1 hover:text-opacity-50 text-black"
         title="Hineinzoomen"
@@ -83,13 +83,15 @@ export const MapNavs = ({ map }: MapNavsProps) => {
       >
         <MinusIcon />
       </button>
-      <button
-        className="h-[43px] w-[43px] px-3 py-1 hover:cursor-pointer bg-white mb-1 hover:text-opacity-50 text-black"
+      <a
+        href="https://luftqualitaet.netlify.app/"
+        target="_blank"
+        rel="noopener noreferrer"
         title="Vollbildschirm"
-        onClick={fullScreen}
+        className="flex h-[43px] w-[43px] px-3 py-1 hover:cursor-pointer bg-white mb-1 hover:text-opacity-50 text-black"
       >
-        {isFullScreen ? <CompressIcon /> : <ExpandIcon />}
-      </button>
+        <ExpandIcon />
+      </a>
     </nav>
   );
 };

@@ -186,14 +186,6 @@ export const MapComponent = ({
       }
     );
 
-    const geolocateControl = new maplibregl.GeolocateControl({
-      positionOptions: { enableHighAccuracy: true },
-      trackUserLocation: true, // Keep tracking user location
-      showAccuracyCircle: false, // Remove accuracy circle
-    });
-
-    map.current.addControl(geolocateControl, "bottom-right"); // Place button at top-right
-
     map.current.on("click", (e) => {
       if (!map.current) return;
       setUserSearchResult(null);
