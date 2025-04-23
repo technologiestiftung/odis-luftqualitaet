@@ -229,6 +229,20 @@ export const MapComponent = ({
     });
   }, []);
 
+  useEffect(() => {
+    if (!mapContainer.current) return;
+
+    const observer = new ResizeObserver(() => {
+      if (map.current) {
+        map.current.resize();
+      }
+    });
+
+    observer.observe(mapContainer.current);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <div ref={mapContainer} className="w-full h-full relative">
       {/* @ts-expect-error placeholder*/}
