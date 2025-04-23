@@ -235,6 +235,16 @@ export const MapComponent = ({
     const observer = new ResizeObserver(() => {
       if (map.current) {
         map.current.resize();
+        map.current?.fitBounds(
+          [
+            [13.046434258466917, 52.30190843622876],
+            [13.820874468731887, 52.69894396430871],
+          ],
+          {
+            padding: 10,
+            duration: 0,
+          }
+        );
       }
     });
 
