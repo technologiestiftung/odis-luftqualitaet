@@ -6,7 +6,7 @@
 
 # Berlin Air Quality Map
 
-This interactive map allows you to explore the air quality in Berlin based on the yearly average for 2024.
+This interactive map allows you to explore the air quality in Berlin based on the yearly average for 2025.
 
 ### 🚀 Features
 

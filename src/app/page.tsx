@@ -54,7 +54,7 @@ export default function Home() {
             "rgb(242, 243, 240) -1px -1px 0px, rgb(242, 243, 240) -1px 0px 1px, rgb(242, 243, 240) -1px 1px 0px, rgb(242, 243, 240) 0px -1px 1px, rgb(242, 243, 240) 0px 1px 1px, rgb(242, 243, 240) 1px -1px 0px, rgb(242, 243, 240) 1px 0px 1px, rgb(242, 243, 240) 1px 1px 0px;",
         }}
       >
-        © 2024 basemap.de / BKG | Datenquellen: © GeoBasis-DE
+        © 2026 basemap.de / BKG | Datenquellen: © GeoBasis-DE
       </p>
     </main>
     // </div>

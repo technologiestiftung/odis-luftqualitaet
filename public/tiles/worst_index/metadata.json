@@ -8,7 +8,7 @@
 "bounds": "13.087593,52.337607,13.762103,52.675884",
 "antimeridian_adjusted_bounds": "13.087593,52.337607,13.762103,52.675884",
 "type": "overlay",
-"strategies": "[{},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":8},{\"tiny_polygons\":8},{\"tiny_polygons\":7},{\"tiny_polygons\":7},{}]",
+"strategies": "[{},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":4},{\"tiny_polygons\":8},{\"tiny_polygons\":8},{\"tiny_polygons\":6},{\"tiny_polygons\":6},{\"tiny_polygons\":1}]",
 "format": "pbf",
 "generator": "tippecanoe v2.31.0",
 "generator_options": "tippecanoe --output-to-directory ../public/tiles/worst_index --no-tile-compression --force -B 13 '--minimum-zoom=1' '--maximum-zoom=10' --no-tile-size-limit ./out/worst_index.geojson",
